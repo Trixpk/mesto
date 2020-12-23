@@ -1,0 +1,6 @@
+.header__logo-link {
+  display: block;
+  width: 142px;
+  height: 33px;
+  background: url('../../../images/logo.svg') no-repeat;
+}
