@@ -2,52 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c015a51-1092-406b-b0e9-47c9ba7fb150" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/bitrixlangplugin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blocks/footer/__copyright/footer__copyright.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blocks/footer/footer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blocks/header/__logo-link/header__logo-link.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blocks/popup/__close-button/popup__close-button.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blocks/popup/__container/popup__container.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blocks/popup/__field/popup__field.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blocks/popup/__submit/popup__submit.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blocks/popup/__title/popup__title.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blocks/popup/_opened/popup_opened.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blocks/popup/popup.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scipts/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mesto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mesto.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blocks/cards/__info-wrap/cards__info-wrap.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/body/body.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/body/body.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blocks/cards/__img/cards__img.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/cards/__img/cards__img.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blocks/cards/__info/cards__info.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/cards/__info/cards__info.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blocks/cards/__item/cards__item.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/cards/__item/cards__item.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blocks/cards/__like/cards__like.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/cards/__like/cards__like.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blocks/cards/__title/cards__title.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/cards/__title/cards__title.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blocks/cards/cards.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/cards/cards.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/container/container.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/container/container.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/header/__logo/header__logo.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/header/__logo/header__logo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/profile/__add-button/profile__add-button.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/profile/__add-button/profile__add-button.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/profile/__avatar/profile__avatar.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/profile/__avatar/profile__avatar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/profile/__edit-button/profile__edit-button.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/profile/__edit-button/profile__edit-button.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/profile/__info/profile__info.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/profile/__info/profile__info.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/profile/__name/profile__name.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/profile/__name/profile__name.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/profile/__profession/profile__profession.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/profile/__profession/profile__profession.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blocks/profile/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/profile/profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/karachaevsk.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/karachaevsk.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.css" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -70,31 +44,27 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1jd8h1m3u0nx9oGGq1YccBT3Sga" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/bxApiDocs-master/modules" />
-    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="settings.editor.selected.configurable" value="liveEdit" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/vendor/fonts" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/mesto/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -104,7 +74,13 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -123,24 +99,29 @@
       <workItem from="1604423426003" duration="4130000" />
       <workItem from="1604427580086" duration="677000" />
       <workItem from="1604496828690" duration="9000" />
+      <workItem from="1608726233740" duration="1896000" />
+      <workItem from="1608731320753" duration="426000" />
+      <workItem from="1608731760514" duration="138000" />
+      <workItem from="1608731915853" duration="244000" />
+      <workItem from="1608732277984" duration="204000" />
+      <workItem from="1608875518526" duration="7777000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
