@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c015a51-1092-406b-b0e9-47c9ba7fb150" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/blocks/cards/__info-wrap/cards__info-wrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/cards/__img/cards__img.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/cards/__img/cards__img.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/cards/__info/cards__info.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/cards/__info/cards__info.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/cards/__item/cards__item.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/cards/__item/cards__item.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/cards/__like/cards__like.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/cards/__like/cards__like.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/cards/__title/cards__title.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/cards/__title/cards__title.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/cards/cards.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/cards/cards.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/profile/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/profile/profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/karachaevsk.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/karachaevsk.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.css" afterDir="false" />
-    </list>
+    <list default="true" id="0c015a51-1092-406b-b0e9-47c9ba7fb150" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,6 +40,7 @@
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/bxApiDocs-master/modules" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="liveEdit" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -104,7 +92,7 @@
       <workItem from="1608731760514" duration="138000" />
       <workItem from="1608731915853" duration="244000" />
       <workItem from="1608732277984" duration="204000" />
-      <workItem from="1608875518526" duration="7777000" />
+      <workItem from="1608875518526" duration="8416000" />
     </task>
     <servers />
   </component>
