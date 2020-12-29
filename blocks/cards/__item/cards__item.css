@@ -1,3 +1,12 @@
 .cards__item {
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    max-width: 282px;
+    width: 100%;
+}
+
+@media (max-width: 463px) {
+    .cards__item {
+        margin: 0 auto;
+    }
 }
