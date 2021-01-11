@@ -3,10 +3,10 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    color: #fff;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 854px) {
     .profile {
         flex-direction: column;
     }

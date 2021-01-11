@@ -1,14 +1,13 @@
 .profile__info {
     color: #fff;
+    flex-grow: 2;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
 }
 
-@media (max-width: 699px) {
+@media (max-width: 854px) {
     .profile__info {
-        flex-direction: column;
+        justify-content: center;
+        margin-top: 22px;
     }
 }
