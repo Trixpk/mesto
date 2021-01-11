@@ -1,10 +1,11 @@
-const editButton = document.querySelector('.profile__edit-button');
-const popupCloseButton = document.querySelector('.popup__close-button');
-const popup = document.querySelector('.popup');
-const popupEditForm = document.querySelector('.popup__edit-form');
-const profileName = document.querySelector('.profile__name');
-const profileProfession = document.querySelector('.profile__profession');
-
+let editButton = document.querySelector('.profile__edit-button');
+let popupCloseButton = document.querySelector('.popup__close-button');
+let popup = document.querySelector('.popup');
+let popupEditForm = document.querySelector('.popup__edit-form');
+let profileName = document.querySelector('.profile__name');
+let profileProfession = document.querySelector('.profile__profession');
+let nameInput = document.querySelector('.popup__field-name');
+let professionInput = document.querySelector('.popup__field-profession');
 
 
 function closeEditPopup() {
@@ -17,9 +18,6 @@ function openEditPopup() {
 
 function savePopup(event) {
   event.preventDefault();
-
-  let nameInput = document.querySelector('.popup__field-name');
-  let professionInput = document.querySelector('.popup__field-profession');
 
   profileName.textContent = nameInput.value;
   profileProfession.textContent = professionInput.value;
