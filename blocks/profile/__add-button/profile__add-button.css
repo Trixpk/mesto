@@ -4,6 +4,7 @@
     width: 150px;
     height: 50px;
     border: 1px solid #fff;
+    transition: .5s;
 }
 
 .profile__add-button:hover {

@@ -5,6 +5,20 @@
 * Figma
 * Картинки
 
+**Описание проекта**
+
+Приложение позволяет добавлять карточки популярных мест и управлять своим аккаунтом.
+
+***Используемые Технологии***
+
+* Html, Css
+* Grid
+* Flex
+* JS
+
+[Ссылка на gh-pages](https://trixpk.github.io/mesto/)
+
+
 **Figma**
 
 * [Ссылка на макет в Figma](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4)

@@ -9,6 +9,7 @@
     border: 1px solid #fff;
     align-self: center;
     margin-left: 18px;
+    transition: .5s;
 }
 
 .profile__edit-button:hover {
