@@ -1,4 +1,7 @@
 .cards__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #fff;
     padding: 25px 0 31px 0;
     border-bottom-left-radius: 10px;

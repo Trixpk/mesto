@@ -2,13 +2,12 @@
     color: #fff;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    align-items: baseline;
+    max-width: 336px;
 }
 
-@media (max-width: 699px) {
+@media (max-width: 655px) {
     .profile__info {
-        flex-direction: column;
+        justify-content: center;
     }
 }

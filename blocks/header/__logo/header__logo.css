@@ -14,9 +14,7 @@
 
 @media (max-width: 940px) {
     .header__logo {
-        padding-left: 27px;
-        background: url('../../../images/logo-mobile.svg') no-repeat;
-        margin-top: 28px;
-        margin-bottom: 31px;
+        margin: 28px 0 31px 27px;
+        background-size: 104px 24px;
     }
 }
