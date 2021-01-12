@@ -7,9 +7,6 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 294px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 @media (max-width: 655px) {
