@@ -6,9 +6,3 @@
     object-fit: cover;
     object-position: 50% 50%;
 }
-
-@media (max-width: 699px) {
-    .profile__avatar {
-        margin: 0 0 22px 0;
-    }
-}
