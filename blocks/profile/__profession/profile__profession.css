@@ -8,7 +8,7 @@
     white-space: nowrap;
 }
 
-@media (max-width: 655px) {
+@media (max-width: 673px) {
     .profile__profession {
         font-size: 14px;
         line-height: 17px;

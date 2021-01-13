@@ -12,3 +12,12 @@
   cursor: pointer;
   opacity: .6;
 }
+
+@media (max-width: 528px) {
+  .popup__close-button {
+    width: 26px;
+    height: 26px;
+    top: -40px;
+    right: 0;
+  }
+}

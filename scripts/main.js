@@ -4,8 +4,8 @@ let popup = document.querySelector('.popup');
 let popupEditForm = document.querySelector('.popup__edit-form');
 let profileName = document.querySelector('.profile__name');
 let profileProfession = document.querySelector('.profile__profession');
-let nameInput = document.querySelector('.popup__field-name');
-let professionInput = document.querySelector('.popup__field-profession');
+let nameInput = document.querySelector('.popup__field_name');
+let professionInput = document.querySelector('.popup__field_profession');
 
 
 function closeEditPopup() {

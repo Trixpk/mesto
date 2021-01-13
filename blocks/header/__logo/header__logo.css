@@ -4,7 +4,7 @@
     display: block;
     width: 142px;
     height: 33px;
-    background: url('../../../images/logo.svg') no-repeat;
+    /*background: url('../../../images/logo.svg') no-repeat;*/
     transition: .5s;
 }
 
@@ -15,6 +15,6 @@
 @media (max-width: 940px) {
     .header__logo {
         margin: 28px 0 31px 27px;
-        background-size: 104px 24px;
+        /*background-size: 104px 24px;*/
     }
 }

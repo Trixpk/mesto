@@ -15,3 +15,9 @@
 .popup__field:first-of-type {
   margin-bottom: 30px;
 }
+
+@media (max-width: 528px) {
+  .popup__field {
+    max-width: 228px;
+  }
+}
