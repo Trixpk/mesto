@@ -26,61 +26,24 @@
             <button type="button" class="profile__add-button"></button>
         </section>
         <section class="cards container">
-            <div class="cards__item">
-                <img class="cards__img" src="images/karachaevsk.jpg" alt="Карачаевск">
-                <div class="cards__info">
-                    <h2 class="cards__title">Карачаево-Черкесия</h2>
-                    <button type="button" class="cards__like">
-                    </button>
+            <template class="card-template">
+                <div class="cards__item">
+                    <button type="button" class="cards__trash"></button>
+                    <img class="cards__img" src="images/dombay.jpg" alt="описание">
+                    <div class="cards__info">
+                        <h2 class="cards__title"></h2>
+                        <button type="button" class="cards__like">
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="cards__item">
-                <img class="cards__img" src="images/karachaevsk.jpg" alt="гора эльбрус">
-                <div class="cards__info">
-                    <h2 class="cards__title">Гора Эльбрус</h2>
-                    <button type="button" class="cards__like">
-                    </button>
-                </div>
-            </div>
-            <div class="cards__item">
-                <img class="cards__img" src="images/dombay.jpg" alt="Домбай">
-                <div class="cards__info">
-                    <h2 class="cards__title">Домбай</h2>
-                    <button type="button" class="cards__like">
-                    </button>
-                </div>
-            </div>
-            <div class="cards__item">
-                <img class="cards__img" src="images/karachaevsk.jpg" alt="описание">
-                <div class="cards__info">
-                    <h2 class="cards__title">Гора Эльбрус</h2>
-                    <button type="button" class="cards__like">
-                    </button>
-                </div>
-            </div>
-            <div class="cards__item">
-                <img class="cards__img" src="images/karachaevsk.jpg" alt="описание">
-                <div class="cards__info">
-                    <h2 class="cards__title">Карачаевск</h2>
-                    <button type="button" class="cards__like">
-                    </button>
-                </div>
-            </div>
-            <div class="cards__item">
-                <img class="cards__img" src="images/dombay.jpg" alt="описание">
-                <div class="cards__info">
-                    <h2 class="cards__title">Карачаевск</h2>
-                    <button type="button" class="cards__like">
-                    </button>
-                </div>
-            </div>
+            </template>
         </section>
     </main>
     <footer class="footer container">
         <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
 
-    <div class="popup">
+    <div class="popup popup_edit-form">
         <div class="popup__container">
             <button class="popup__close-button" type="button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
@@ -91,6 +54,28 @@
             </form>
         </div>
     </div>
+
+    <div class="popup popup_add-form">
+        <div class="popup__container">
+            <button class="popup__close-button" type="button"></button>
+            <h2 class="popup__title">Новое место</h2>
+            <form class="popup__form">
+                <input class="popup__field popup__field_name" type="text" placeholder="Название">
+                <input class="popup__field popup__field_link" type="text" placeholder="Ссылка на картинку">
+                <button class="popup__submit" type="submit">Создать</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup_detail-img">
+        <figure class="card-detail">
+            <button class="popup__close-button" type="button"></button>
+            <img class="card-detail__img" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" alt="">
+            <figcaption class="card-detail__title">Архыз</figcaption>
+        </figure>
+
+    </div>
+
 </div>
 <script src="scripts/main.js"></script>
 </body>
