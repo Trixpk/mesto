@@ -59,6 +59,15 @@ function addCard(event) {
     cardElement.querySelector('.cards__img').src = cardLink;
     cardElement.querySelector('.cards__title').textContent = cardName;
 
+    cardElement.querySelector('.cards__img').addEventListener('click', function (evt) {
+        if(evt.target.classList.contains('cards__img')) {
+            popupDetailImg.querySelector('.card-detail__img').src = evt.target.src;
+            popupDetailImg.querySelector('.card-detail__title').textContent = cardName;
+
+            toggleModal(popupDetailImg);
+        }
+    });
+
     cardsSection.prepend(cardElement);
 
     popupAddForm.classList.remove('popup_opened');
