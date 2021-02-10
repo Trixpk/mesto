@@ -55,17 +55,19 @@ function savePopup(event) {
 }
 
 function createCard() {
-    
+    return document.querySelector('.card-template').content.cloneNode(true);
 }
 
 function addCard(event) {
     event.preventDefault();
 
-    const cardElement = document.querySelector('.card-template').content.cloneNode(true);
-    cardElement.querySelector('.cards__img').src = cardLink.value;
+    const cardElement = createCard();
+    const cardsImg = cardElement.querySelector('.cards__img');
+    cardsImg.src = cardLink.value;
+    cardsImg.alt = cardName.value;
     cardElement.querySelector('.cards__title').textContent = cardName.value;
 
-    cardElement.querySelector('.cards__img').addEventListener('click', function (evt) {
+    cardsImg.addEventListener('click', function (evt) {
         if(evt.target.classList.contains('cards__img')) {
             popupDetailImg.querySelector('.card-detail__img').src = evt.target.src;
             popupDetailImg.querySelector('.card-detail__title').textContent = cardName;
@@ -80,12 +82,14 @@ function addCard(event) {
 }
 
 initialCards.forEach(function (card) {
-    const cardElement = document.querySelector('.card-template').content.cloneNode(true);
+    const cardElement = createCard();
+    const cardsImg = cardElement.querySelector('.cards__img');
 
     cardElement.querySelector('.cards__title').textContent = card.name;
-    cardElement.querySelector('.cards__img').src = card.link;
+    cardsImg.alt = card.name;
+    cardsImg.src = card.link;
 
-    cardElement.querySelector('.cards__img').addEventListener('click', function (evt) {
+    cardsImg.addEventListener('click', function (evt) {
         if(evt.target.classList.contains('cards__img')) {
             cardDetailImg.src = evt.target.src;
             cardDetailTitle.textContent = card.name;
