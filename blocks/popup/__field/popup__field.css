@@ -2,7 +2,7 @@
   display: block;
   max-width: 358px;
   width: 100%;
-  margin: 0 auto;
+  margin: 36px auto 0 auto;
   border-top: none;
   border-right: none;
   border-left: none;
@@ -12,8 +12,8 @@
   line-height: 17px;
 }
 
-.popup__field:first-of-type {
-  margin-bottom: 30px;
+.popup__field:focus {
+  outline: none;
 }
 
 @media (max-width: 528px) {
