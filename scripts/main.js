@@ -14,12 +14,21 @@ const cardDetailImg = popupDetailImg.querySelector('.card-detail__img');
 const cardDetailTitle = popupDetailImg.querySelector('.card-detail__title');
 const popups = document.querySelectorAll('.popup');
 
+function popupEscListener(event) {
+    if(event.key == 'Escape') {
+        const popupOpened = document.querySelector('.popup_opened');
+        closePopup(popupOpened);
+    }
+}
+
 function openPopup(element) {
     element.classList.add('popup_opened');
+    document.addEventListener('keydown', popupEscListener);
 }
 
 function closePopup(element) {
     element.classList.remove('popup_opened');
+    document.removeEventListener('keydown', popupEscListener);
 }
 
 function setSubmitButtonState(form, isFormValid) {
