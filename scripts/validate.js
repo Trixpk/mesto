@@ -65,7 +65,7 @@ const closePopupEsc = () => {
         if(evt.key === 'Escape') {
             const openedForm = document.querySelector('.popup_opened');
             if(openedForm !== null) {
-                toggleModal(openedForm);
+                closePopup(openedForm);
             }
         }
     });
