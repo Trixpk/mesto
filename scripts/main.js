@@ -31,14 +31,14 @@ function closePopup(element) {
     document.removeEventListener('keydown', popupEscListener);
 }
 
-function setSubmitButtonState(form, isFormValid) {
-    const button = form.querySelector('.popup__submit');
+function setSubmitButtonState(config, form, isFormValid) {
+    const button = form.querySelector(config.submitButtonSelector);
     if (isFormValid) {
         button.removeAttribute('disabled');
-        button.classList.remove('popup__submit_inactive');
+        button.classList.remove(config.inactiveButtonClass);
     } else {
         button.setAttribute('disabled', true);
-        button.classList.add('popup__submit_inactive');
+        button.classList.add(config.inactiveButtonClass);
     }
 }
 
@@ -47,7 +47,7 @@ function savePopup() {
     profileProfession.textContent = professionInput.value;
 
     popupEditForm.querySelector('.form').reset();
-    setSubmitButtonState(popupEditForm, false);
+    setSubmitButtonState(validationConfig, popupEditForm, false);
     closePopup(popupEditForm);
 }
 
@@ -85,7 +85,7 @@ function addCard(event) {
     const cardElement = createCard(cardLink.value, cardName.value);
     cardsSection.prepend(cardElement);
     popupAddForm.querySelector('.form').reset();
-    setSubmitButtonState(popupAddForm, false);
+    setSubmitButtonState(validationConfig, popupAddForm, false);
     closePopup(popupAddForm);
 }
 
@@ -105,6 +105,9 @@ popups.forEach((popup) => {
 });
 
 editButton.addEventListener('click', function () {
+    nameInput.value = profileName.textContent;
+    professionInput.value = profileProfession.textContent;
+    setSubmitButtonState(validationConfig, popupEditForm, true);
     openPopup(popupEditForm);
 });
 
