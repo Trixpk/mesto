@@ -57,7 +57,7 @@ function savePopup() {
     profileName.textContent = nameInput.value;
     profileProfession.textContent = professionInput.value;
 
-    popupEditForm.querySelector('.form').reset();
+    profileEditForm.reset();
     setSubmitButtonState(validationConfig, popupEditForm, false);
     closePopup(popupEditForm);
 }
@@ -73,7 +73,7 @@ function addCard(event) {
 
 
     cardsSection.prepend(cardElement);
-    popupAddForm.querySelector('.form').reset();
+    cardAddForm.reset();
     setSubmitButtonState(validationConfig, popupAddForm, false);
     closePopup(popupAddForm);
 }
