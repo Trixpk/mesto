@@ -1,20 +1,27 @@
-import {initialCards} from '../scripts/initial-cards.js';
-import {validationConfig} from '../scripts/validate-config.js';
-import Card from '../scripts/Card.js';
-import FormValidator from '../scripts/FormValidator.js';
+import {initialCards} from "../scripts/initial-cards.js";
+import Card from "../scripts/Card.js";
+import FormValidator from "../scripts/FormValidator.js";
 
-const editButton = document.querySelector('.profile__edit-button');
+const validationConfig = {
+    formSelector: '.form',
+    inputSelector: '.popup__field',
+    submitButtonSelector: '.popup__submit',
+    inactiveButtonClass: 'popup__submit_inactive',
+    inputErrorClass: 'popup__field_type_error',
+    errorClass: 'popup__input-error_active'
+};
 const popupEditForm = document.querySelector('.popup_edit-form');
 const profileName = document.querySelector('.profile__name');
 const profileProfession = document.querySelector('.profile__profession');
 const nameInput = document.querySelector('.popup__field_name');
 const professionInput = document.querySelector('.popup__field_profession');
 const cardsSection = document.querySelector('.cards');
-const addButton = document.querySelector('.profile__add-button');
 const popupAddForm = document.querySelector('.popup_add-form');
+const editButton = document.querySelector('.profile__edit-button');
+const addButton = document.querySelector('.profile__add-button');
+const popups = document.querySelectorAll('.popup');
 const cardName = popupAddForm.querySelector('.popup__field_name');
 const cardLink = popupAddForm.querySelector('.popup__field_link');
-const popups = document.querySelectorAll('.popup');
 
 const cardAddForm = document.querySelector('.popup_add-form').querySelector('.form');
 const profileEditForm = document.querySelector('.popup_edit-form').querySelector('.form');
@@ -63,10 +70,10 @@ function savePopup() {
 }
 
 
-function addCard(event) {
+function addCard() {
     const dataCard = {
-        name: cardLink.value,
-        link: cardName.value
+        name: cardName.value,
+        link: cardLink.value
     };
     const card = new Card(dataCard, '.card-template');
     const cardElement = card.generateCard();

@@ -1,29 +1,25 @@
+function popupEscListener(event) {
+    if (event.key === 'Escape') {
+        const popupOpened = document.querySelector('.popup_opened');
+        closePopup(popupOpened);
+    }
+}
+
+function openPopup(element) {
+    element.classList.add('popup_opened');
+    document.addEventListener('keydown', popupEscListener);
+}
+
+function closePopup(element) {
+    element.classList.remove('popup_opened');
+    document.removeEventListener('keydown', popupEscListener);
+}
+
 export default class Card {
     constructor(data, cardSelector) {
         this._cardSelector = cardSelector;
         this._link = data.link;
         this._name = data.name;
-    }
-
-    _popupEscListener(event) {
-        if(event.key === 'Escape') {
-            const popupOpened = document.querySelector('.popup_opened');
-            this._closeImgPopup(popupOpened);
-        }
-    }
-
-    _openImgPopup(element) {
-        element.classList.add('popup_opened');
-        document.addEventListener('keydown', (event) => {
-            this._popupEscListener(event);
-        });
-    }
-
-    _closeImgPopup(element) {
-        element.classList.remove('popup_opened');
-        document.removeEventListener('keydown', (event) => {
-            this._popupEscListener(event);
-        });
     }
 
     _getTemplate() {
@@ -45,14 +41,16 @@ export default class Card {
     }
 
     _handleImgClick() {
-        this._popupDetailImg = document.querySelector('.popup_detail-img');
+        this._cardDetailImgPopup = document.querySelector('.popup_detail-img');
         this._cardDetailImg = document.querySelector('.card-detail__img');
         this._cardDetailTitle = document.querySelector('.card-detail__title');
 
         this._cardDetailImg.src = this._link;
         this._cardDetailTitle.textContent = this._name;
 
-        this._openImgPopup(this._popupDetailImg);
+        openPopup(this._cardDetailImgPopup);
+
+        document.addEventListener('keydown', popupEscListener);
     }
 
     _setEventListeners() {
@@ -61,11 +59,11 @@ export default class Card {
         });
 
         this._element.querySelector('.cards__like').addEventListener('click', () => {
-           this._handleLikeClick();
+            this._handleLikeClick();
         });
 
         this._element.querySelector('.cards__img').addEventListener('click', () => {
-           this._handleImgClick();
+            this._handleImgClick();
         });
     }
 
