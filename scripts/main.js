@@ -114,3 +114,5 @@ addButton.addEventListener('click', function () {
 popupEditForm.querySelector('.form').addEventListener('submit', savePopup);
 
 popupAddForm.querySelector('.popup__form').addEventListener('submit', addCard);
+
+export {popupEscListener, openPopup};

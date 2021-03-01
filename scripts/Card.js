@@ -1,19 +1,4 @@
-function popupEscListener(event) {
-    if (event.key === 'Escape') {
-        const popupOpened = document.querySelector('.popup_opened');
-        closePopup(popupOpened);
-    }
-}
-
-function openPopup(element) {
-    element.classList.add('popup_opened');
-    document.addEventListener('keydown', popupEscListener);
-}
-
-function closePopup(element) {
-    element.classList.remove('popup_opened');
-    document.removeEventListener('keydown', popupEscListener);
-}
+import {popupEscListener, openPopup} from '../scripts/main.js';
 
 export default class Card {
     constructor(data, cardSelector) {
@@ -47,10 +32,9 @@ export default class Card {
 
         this._cardDetailImg.src = this._link;
         this._cardDetailTitle.textContent = this._name;
+        this._cardDetailImg.alt = this._name;
 
         openPopup(this._cardDetailImgPopup);
-
-        document.addEventListener('keydown', popupEscListener);
     }
 
     _setEventListeners() {
@@ -73,6 +57,7 @@ export default class Card {
 
         this._element.querySelector('.cards__title').textContent = this._name;
         this._element.querySelector('.cards__img').src = this._link;
+        this._element.querySelector('.cards__img').alt = this._name;
 
         return this._element;
     }
