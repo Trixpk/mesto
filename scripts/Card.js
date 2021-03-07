@@ -1,4 +1,4 @@
-import {popupEscListener, openPopup} from '../scripts/main.js';
+import {openPopup} from '../scripts/main.js';
 
 export default class Card {
     constructor(data, cardSelector) {
@@ -53,11 +53,13 @@ export default class Card {
 
     generateCard() {
         this._element = this._getTemplate();
+        const cardTitle = this._element.querySelector('.cards__title');
+        const cardImg = this._element.querySelector('.cards__img');
         this._setEventListeners();
 
-        this._element.querySelector('.cards__title').textContent = this._name;
-        this._element.querySelector('.cards__img').src = this._link;
-        this._element.querySelector('.cards__img').alt = this._name;
+        cardTitle.textContent = this._name;
+        cardImg.src = this._link;
+        cardImg.alt = this._name;
 
         return this._element;
     }
