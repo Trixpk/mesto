@@ -1,10 +1,9 @@
-import {openPopup} from '../scripts/main.js';
-
 export default class Card {
-    constructor(data, cardSelector) {
+    constructor(data, cardSelector, handleCardClick) {
         this._cardSelector = cardSelector;
         this._link = data.link;
         this._name = data.name;
+        this._handleCardClick = handleCardClick;
     }
 
     _getTemplate() {
@@ -47,7 +46,7 @@ export default class Card {
         });
 
         this._element.querySelector('.cards__img').addEventListener('click', () => {
-            this._handleImgClick();
+            this._handleCardClick();
         });
     }
 
