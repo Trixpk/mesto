@@ -5,11 +5,14 @@ export default class UserInfo {
     }
 
     getUserInfo() {
-        return {name: this._nameElement.textContent, info: this._infoElement.textContent};
+        return {
+            name: this._nameElement.textContent,
+            info: this._infoElement.textContent
+        };
     }
 
     setUserInfo(name, info) {
-        document.querySelector('.profile__name').textContent = name;
-        document.querySelector('.profile__profession').textContent = info;
+        this._nameElement.textContent = name;
+        this._infoElement.textContent = info;
     }
 }

@@ -1,12 +1,12 @@
-import '../pages/index.css';
+import './index.css';
 import {initialCards} from "../scripts/initial-cards.js";
 import Card from "../scripts/Card.js";
 import FormValidator from "../scripts/FormValidator.js";
-import Popup from './Popup.js';
-import PopupWithForm from "./PopupWithForm.js";
-import PopupWithImage from './PopupWithImage.js';
-import Section from './Section.js';
-import UserInfo from './UserInfo.js';
+import Popup from '../scripts/Popup.js';
+import PopupWithForm from "../scripts/PopupWithForm.js";
+import PopupWithImage from '../scripts/PopupWithImage.js';
+import Section from '../scripts/Section.js';
+import UserInfo from '../scripts/UserInfo.js';
 
 const validationConfig = {
     formSelector: '.form',
@@ -18,10 +18,13 @@ const validationConfig = {
 };
 
 const userInfo = new UserInfo('.profile__name', '.profile__profession');
+const profileNameInput = document.querySelector('.popup__field_name'); 
+const profileProfessionInput = document.querySelector('.popup__field_profession');
 const profileEditButton = document.querySelector('.profile__edit-button');
 const profileAddButton = document.querySelector('.profile__add-button');
 
 const cardAddForm = document.querySelector('.popup_add-form').querySelector('.form');
+const addFormSubmit = cardAddForm.querySelector('.popup__submit');
 const profileEditForm = document.querySelector('.popup_edit-form').querySelector('.form');
 
 const addFormValidate = new FormValidator(validationConfig, cardAddForm);
@@ -30,20 +33,23 @@ addFormValidate.enableValidation();
 const editFormValidate = new FormValidator(validationConfig, profileEditForm);
 editFormValidate.enableValidation();
 
+const popupWithImage = new PopupWithImage('.popup_detail-img');
+popupWithImage.setEventListeners();
+
+const createCard = (item) => {
+    const card = new Card(
+        item,
+        '.card-template',
+        () => {
+            popupWithImage.open(item);
+        }
+    );
+    return card.generateCard();
+}
+
 const cardsSection = new Section({
     items: initialCards,
-    renderer: (item) => {
-        const card = new Card(
-            item,
-            '.card-template',
-            () => {
-                const popupDetailImg = new PopupWithImage('.popup_detail-img');
-                popupDetailImg.open(item);
-            }
-        );
-        const renderedElement = card.generateCard();
-        return renderedElement;
-    }
+    renderer: createCard
 }, '.cards');
 cardsSection.renderItems();
 
@@ -54,42 +60,34 @@ const popupAddForm = new PopupWithForm(
         item.name = cardAddForm.querySelector('.popup__field_name').value;
         item.link = cardAddForm.querySelector('.popup__field_link').value;
 
-        const card = new Card(
-            item,
-            '.card-template',
-            () => {
-                const popupDetailImg = new PopupWithImage('.popup_detail-img');
-                popupDetailImg.open(item);
-            }
-        );
-        const newCard = card.generateCard();
+        const newCard = createCard(item);
         cardsSection.addItem(newCard);
         cardAddForm.reset();
         popupAddForm.close();
     }
 );
+popupAddForm.setEventListeners();
+
 profileAddButton.addEventListener('click', () => {
+    addFormValidate.toggleButtonState();
     popupAddForm.open();
-    popupAddForm.setEventListeners();
 });
 
 const popupEditForm = new PopupWithForm(
     '.popup_edit-form',
     () => {
-        const profileName = profileEditForm.querySelector('.popup__field_name').value;
-        const profileProfession = profileEditForm.querySelector('.popup__field_profession').value;
-
-        userInfo.setUserInfo(profileName, profileProfession);
+        userInfo.setUserInfo(profileNameInput.value, profileProfessionInput.value);
 
         popupEditForm.close();
     }
 );
+popupEditForm.setEventListeners();
 
 profileEditButton.addEventListener('click', () => {
     const inputValues = userInfo.getUserInfo();
-    profileEditForm.querySelector('.popup__field_name').value = inputValues.name;
-    profileEditForm.querySelector('.popup__field_profession').value = inputValues.info;
-    profileEditForm.querySelector('.popup__submit').classList.remove('popup__submit_inactive');
+    profileNameInput.value = inputValues.name;
+    profileProfessionInput.value = inputValues.info;
+
+    editFormValidate.toggleButtonState();
     popupEditForm.open();
-    popupEditForm.setEventListeners();
 });

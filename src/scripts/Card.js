@@ -24,18 +24,6 @@ export default class Card {
         this._element.querySelector('.cards__like').classList.toggle('cards__like_active');
     }
 
-    _handleImgClick() {
-        this._cardDetailImgPopup = document.querySelector('.popup_detail-img');
-        this._cardDetailImg = document.querySelector('.card-detail__img');
-        this._cardDetailTitle = document.querySelector('.card-detail__title');
-
-        this._cardDetailImg.src = this._link;
-        this._cardDetailTitle.textContent = this._name;
-        this._cardDetailImg.alt = this._name;
-
-        openPopup(this._cardDetailImgPopup);
-    }
-
     _setEventListeners() {
         this._element.querySelector('.cards__trash').addEventListener('click', () => {
             this._handleTrashClick();
