@@ -64,13 +64,22 @@ const createCard = (item) => {
     const card = new Card({
         data: item,
         handleCardClick: () => {
-            PopupWithImage.open(item);
+            popupWithImage.open(item);
         },
-        handleLikeClick: (card) => {
-
+        handleLikeClick: (cardId) => {
+            api.addLike(cardId)
+            .then((res) => {
+                console.log(card);
+                // обрабатываем данные после лайка карточки
+                card.changeLikeColor();
+                card.updateLikesCount(res.likes.length);
+            })
+            .catch((err) => {
+                console.log('Ошибка лайка карточки ' + err);
+            });
         },
         handleDeleteIconClick: (card) => {
-
+            console.log('delete');
         }
     },
     '.card-template'

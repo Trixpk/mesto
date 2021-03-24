@@ -3,6 +3,7 @@ export default class Card {
         this._cardSelector = cardSelector;
         this._link = options.data.link;
         this._name = options.data.name;
+        this._id = options.data._id;
         this._likesCount = options.data.likes.length;
         this._handleCardClick = options.handleCardClick;
         this._handleLikeClick = options.handleLikeClick;
@@ -19,17 +20,21 @@ export default class Card {
         return cardElement;
     }
 
-    _handleLikeClick() {
+    changeLikeColor() {
         this._element.querySelector('.cards__like').classList.toggle('cards__like_active');
+    }
+
+    updateLikesCount(count) {
+        this._element.querySelector('.cards__like-counter').textContent = count;
     }
 
     _setEventListeners() {
         this._element.querySelector('.cards__trash').addEventListener('click', () => {
-            this._handleDeleteIconClick(card);
+            this._handleDeleteIconClick();
         });
 
         this._element.querySelector('.cards__like').addEventListener('click', () => {
-            this._handleLikeClick();
+            this._handleLikeClick(this._id);
         });
 
         this._element.querySelector('.cards__img').addEventListener('click', () => {

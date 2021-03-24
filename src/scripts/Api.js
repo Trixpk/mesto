@@ -53,4 +53,23 @@ export default class Api {
             body: JSON.stringify(data)
         })
     }
+
+    addLike(cardId) {
+        return fetch(this._baseUrl + '/cards/likes/' + cardId, {
+            headers: this._headers,
+            method: 'PUT'
+        }).then((result) => {
+            if(result.ok) {
+                return result.json();
+            }
+
+            return new Promise.reject(`Ошибка: ${result.status}`);
+        })
+    }
+
+    deleteLike(cardId) {
+        return fetch(this._baseUrl + '/cards/likes/' + cardId, {
+
+        })
+    }
 }
