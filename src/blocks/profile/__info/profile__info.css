@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     align-items: baseline;
     max-width: 336px;
+    margin-left: 30px;
 }
 
 @media (max-width: 673px) {
