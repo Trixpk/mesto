@@ -54,8 +54,8 @@ export default class Api {
         })
     }
 
-    addLike(cardId) {
-        return fetch(this._baseUrl + '/cards/likes/' + cardId, {
+    addLike(itemId) {
+        return fetch(this._baseUrl + '/cards/likes/' + itemId, {
             headers: this._headers,
             method: 'PUT'
         }).then((result) => {
@@ -67,9 +67,16 @@ export default class Api {
         })
     }
 
-    deleteLike(cardId) {
-        return fetch(this._baseUrl + '/cards/likes/' + cardId, {
+    deleteLike(itemId) {
+        return fetch(this._baseUrl + '/cards/likes/' + itemId, {
+            headers: this._headers,
+            method: 'DELETE'
+        }).then((result) => {
+            if(result.ok) {
+                return result.json();
+            }
 
+            return new Promise.reject(`Ошибка: ${result.status}`);
         })
     }
 }

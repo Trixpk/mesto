@@ -16,15 +16,14 @@ const api = new Api({
     }
 });
 
-/* const testdata = {
-    name: 'нарния',
-    link: 'https://i.artfile.ru/2560x1600_506416_[www.ArtFile.ru].jpg'
-}
-api.addCard(testdata).then((res) => {
-    console.log(res);
-}).catch((err) => {
-    console.log('Ошибка ' + err);
-}) */
+api.getUserInfo()
+.then((result) => {
+    infoAboutMe = result;
+    userInfo.setUserInfo(result);
+    profileAvatar.src = result.avatar;
+}).catch((error) => {
+    console.log('Ошибка при добавлении информации о пользователе ' + error);
+})
 
 const validationConfig = {
     formSelector: '.form',
@@ -35,6 +34,7 @@ const validationConfig = {
     errorClass: 'popup__input-error_active'
 };
 
+let infoAboutMe;
 const profileNameInput = document.querySelector('.popup__field_name'); 
 const profileProfessionInput = document.querySelector('.popup__field_profession');
 const profileAvatarInput = document.querySelector('.popup__field_avatar');
@@ -66,13 +66,13 @@ const createCard = (item) => {
         handleCardClick: () => {
             popupWithImage.open(item);
         },
-        handleLikeClick: (cardId) => {
-            api.addLike(cardId)
+        handleLikeClick: () => {
+
+            api.addLike(card._cardId)
             .then((res) => {
-                console.log(card);
-                // обрабатываем данные после лайка карточки
-                card.changeLikeColor();
+                card._toggleLike();
                 card.updateLikesCount(res.likes.length);
+                card._likes.length = res.likes.length;
             })
             .catch((err) => {
                 console.log('Ошибка лайка карточки ' + err);
@@ -84,6 +84,8 @@ const createCard = (item) => {
     },
     '.card-template'
     );
+    card.checkLike(infoAboutMe._id);
+
     return card.generateCard();
 }
 
@@ -91,14 +93,6 @@ const userInfo = new UserInfo(
     '.profile__name',
     '.profile__profession'
 );
-
-api.getUserInfo()
-.then((result) => {
-    userInfo.setUserInfo(result);
-    profileAvatar.src = result.avatar;
-}).catch((error) => {
-    console.log('Ошибка при добавлении информации о пользователе ' + error);
-})
 
 api.getInitialCards()
 .then((res) => {
