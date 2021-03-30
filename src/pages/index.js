@@ -17,14 +17,19 @@ const api = new Api({
     }
 });
 
-api.getUserInfo()
-.then((result) => {
-    infoAboutMe = result;
-    userInfo.setUserInfo(result);
-    profileAvatar.src = result.avatar;
-}).catch((error) => {
-    console.log('Ошибка при добавлении информации о пользователе ' + error);
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+.then(([userData, cards]) => {
+    infoAboutMe = userData;
+    userInfo.setUserInfo(userData);
+    profileAvatar.src = userData.avatar;
+
+    cardsSection.items = cards;
+    cardsSection.renderItems(infoAboutMe._id);
 })
+.catch(err => {
+    console.log('Ошибка получения данных ' + err);
+})
+
 
 const validationConfig = {
     formSelector: '.form',
@@ -61,6 +66,9 @@ avatarFormValidate.enableValidation();
 const popupWithImage = new PopupWithImage('.popup_detail-img');
 popupWithImage.setEventListeners();
 
+const popupDelConfirm = new PopupConfirmDelete('.popup_del-confirm', () => true);
+popupDelConfirm.setEventListeners();
+
 const createCard = (item) => {
     const card = new Card({
         data: item,
@@ -86,22 +94,18 @@ const createCard = (item) => {
             }
         },
         handleDeleteIconClick: (card) => {
-            const cardId = card.getCardId();
-            const popupDelConfirm = new PopupConfirmDelete(
-                '.popup_del-confirm',
-                () => {
-                    api.deleteCard(cardId).then((res) => {
-                        card.removeElement();
-                        popupDelConfirm.close();
-                    }).catch((err) => {
-                        console.log('Ошибка удаления карточки ' + err);
-                        popupDelConfirm.close();
-                    })
-                }
-            );
+            popupDelConfirm.setSubmitHandler(() => {
+                api.deleteCard(card.getCardId())
+                .then(() => {
+                    card.removeElement();
+                    popupDelConfirm.close();
+                })
+                .catch((err) => {
+                    console.log('Ошибка удаления карточки ' + err);
+                })
+            });
             popupDelConfirm.open();
-            popupDelConfirm.setEventListeners();
-        }
+        },
     },
     '.card-template',
     infoAboutMe
@@ -118,15 +122,6 @@ const userInfo = new UserInfo(
     '.profile__name',
     '.profile__profession'
 );
-
-api.getInitialCards()
-.then((res) => {
-    cardsSection.items = res;
-    cardsSection.renderItems(infoAboutMe._id);
-})
-.catch((err) => {
-    console.log('Не удалось добавить карточки ' + err);
-});
 
 const popupAddForm = new PopupWithForm(
     '.popup_add-form',
