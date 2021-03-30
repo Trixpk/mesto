@@ -4,16 +4,20 @@ export default class Api {
         this._headers = options.headers;
     }
 
+    _isOk(result) {
+        if(result.ok) {
+            return result.json();
+        }
+
+        return Promise.reject(`Ошибка: ${result.status}`);
+    }
+
     getInitialCards() {
         return fetch(this._baseUrl + '/cards', {
-            headers: this._headers
+            headers: this._headers,
         })
         .then((result) => {
-            if(result.ok) {
-                return result.json();
-            }
-
-            return Promise.reject(`Ошибка: ${result.status}`);
+            return this._isOk(result);
         })
     }
 
@@ -23,11 +27,7 @@ export default class Api {
             method: 'POST',
             body: JSON.stringify(data)
         }).then((result) => {
-            if(result.ok) {
-                return result.json();
-            }
-
-            return new Promise.reject(`Ошибка: ${result.status}`);
+            return this._isOk(result);
         })
     }
 
@@ -36,11 +36,7 @@ export default class Api {
             headers: this._headers,
             method: 'DELETE'
         }).then((result) => {
-            if(result.ok) {
-                return result.json();
-            }
-
-            return new Promise.reject(`Ошибка: ${result.status}`);
+            return this._isOk(result);
         })
     }
 
@@ -49,11 +45,7 @@ export default class Api {
             headers: this._headers
         })
         .then((result) => {
-            if(result.ok) {
-                return result.json();
-            }
-
-            return new Promise.reject(`Ошибка: ${result.status}`);
+            return this._isOk(result);
         })
     }
 
@@ -63,11 +55,7 @@ export default class Api {
             method: 'PATCH',
             body: JSON.stringify(data)
         }).then((result) => {
-            if(result.ok) {
-                return result.json();
-            }
-
-            return new Promise.reject(`Ошибка: ${result.status}`);
+            return this._isOk(result);
         })
     }
 
@@ -77,11 +65,7 @@ export default class Api {
             method: 'PATCH',
             body: JSON.stringify(data)
         }).then((result) => {
-            if(result.ok) {
-                return result.json();
-            }
-
-            return new Promise.reject(`Ошибка: ${result.status}`);
+            return this._isOk(result);
         })
     }
 
@@ -90,11 +74,7 @@ export default class Api {
             headers: this._headers,
             method: 'PUT'
         }).then((result) => {
-            if(result.ok) {
-                return result.json();
-            }
-
-            return new Promise.reject(`Ошибка: ${result.status}`);
+            return this._isOk(result);
         })
     }
 
@@ -103,11 +83,7 @@ export default class Api {
             headers: this._headers,
             method: 'DELETE'
         }).then((result) => {
-            if(result.ok) {
-                return result.json();
-            }
-
-            return new Promise.reject(`Ошибка: ${result.status}`);
+            return this._isOk(result);
         })
     }
 }

@@ -1,13 +1,13 @@
 import './index.css';
-import Card from "../scripts/Card.js";
-import FormValidator from "../scripts/FormValidator.js";
-import Popup from '../scripts/Popup.js';
-import PopupWithForm from "../scripts/PopupWithForm.js";
-import PopupWithImage from '../scripts/PopupWithImage.js';
-import PopupConfirmDelete from '../scripts/PopupConfirmDelete.js';
-import Section from '../scripts/Section.js';
-import UserInfo from '../scripts/UserInfo.js';
-import Api from '../scripts/Api.js';
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+import Popup from '../components/Popup.js';
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupConfirmDelete from '../components/PopupConfirmDelete.js';
+import Section from '../components/Section.js';
+import UserInfo from '../components/UserInfo.js';
+import Api from '../components/Api.js';
 
 const api = new Api({
     baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-21',
@@ -51,6 +51,9 @@ const avatarButton = document.querySelector('.profile__avatar-wrap');
 
 const changeAvatarForm = document.querySelector('.popup_change-avatar').querySelector('.form');
 const cardAddForm = document.querySelector('.popup_add-form').querySelector('.form');
+const addFormName = cardAddForm.querySelector('.popup__field_name');
+const addFormLink = cardAddForm.querySelector('.popup__field_link');
+
 const addFormSubmit = cardAddForm.querySelector('.popup__submit');
 const profileEditForm = document.querySelector('.popup_edit-form').querySelector('.form');
 
@@ -127,8 +130,8 @@ const popupAddForm = new PopupWithForm(
     '.popup_add-form',
     () => {
         const item = {
-            name: cardAddForm.querySelector('.popup__field_name').value,
-            link: cardAddForm.querySelector('.popup__field_link').value
+            name: addFormName.value,
+            link: addFormLink.value
         };
 
         popupAddForm.waitSave();
