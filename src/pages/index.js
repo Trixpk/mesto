@@ -4,6 +4,7 @@ import FormValidator from "../scripts/FormValidator.js";
 import Popup from '../scripts/Popup.js';
 import PopupWithForm from "../scripts/PopupWithForm.js";
 import PopupWithImage from '../scripts/PopupWithImage.js';
+import PopupConfirmDelete from '../scripts/PopupConfirmDelete.js';
 import Section from '../scripts/Section.js';
 import UserInfo from '../scripts/UserInfo.js';
 import Api from '../scripts/Api.js';
@@ -66,28 +67,52 @@ const createCard = (item) => {
         handleCardClick: () => {
             popupWithImage.open(item);
         },
-        handleLikeClick: () => {
-
-            api.addLike(card._cardId)
-            .then((res) => {
-                card._toggleLike();
-                card.updateLikesCount(res.likes.length);
-                card._likes.length = res.likes.length;
-            })
-            .catch((err) => {
-                console.log('Ошибка лайка карточки ' + err);
-            });
+        handleLikeClick: (card) => {
+            const isLikeResult = card.isLiked();
+            const cardId = card.getCardId();
+            if(isLikeResult) {
+                api.deleteLike(cardId)
+                .then((res) => {
+                    card.updateLike(res);
+                })
+            }else {
+                api.addLike(cardId)
+                .then((res) => {
+                    card.updateLike(res);
+                })
+                .catch((err) => {
+                    console.log('Ошибка лайка карточки ' + err);
+                });
+            }
         },
         handleDeleteIconClick: (card) => {
-            console.log('delete');
+            const cardId = card.getCardId();
+            const popupDelConfirm = new PopupConfirmDelete(
+                '.popup_del-confirm',
+                () => {
+                    api.deleteCard(cardId).then((res) => {
+                        card.removeElement();
+                        popupDelConfirm.close();
+                    }).catch((err) => {
+                        console.log('Ошибка удаления карточки ' + err);
+                        popupDelConfirm.close();
+                    })
+                }
+            );
+            popupDelConfirm.open();
+            popupDelConfirm.setEventListeners();
         }
     },
-    '.card-template'
+    '.card-template',
+    infoAboutMe
     );
-    card.checkLike(infoAboutMe._id);
-
     return card.generateCard();
 }
+
+const cardsSection = new Section({
+    items: {},
+    renderer: createCard
+}, '.cards');
 
 const userInfo = new UserInfo(
     '.profile__name',
@@ -96,11 +121,8 @@ const userInfo = new UserInfo(
 
 api.getInitialCards()
 .then((res) => {
-    const cardsSection = new Section({
-        items: res,
-        renderer: createCard
-    }, '.cards');
-    cardsSection.renderItems();
+    cardsSection.items = res;
+    cardsSection.renderItems(infoAboutMe._id);
 })
 .catch((err) => {
     console.log('Не удалось добавить карточки ' + err);
@@ -114,10 +136,18 @@ const popupAddForm = new PopupWithForm(
             link: cardAddForm.querySelector('.popup__field_link').value
         };
 
-        const newCard = createCard(item);
-        cardsSection.addItem(newCard);
-        cardAddForm.reset();
-        popupAddForm.close();
+        popupAddForm.waitSave();
+        api.addCard(item).then((res) => {
+            const newCard = createCard(res);
+            cardsSection.addItem(newCard);
+            cardAddForm.reset();
+            popupAddForm.close();
+            popupAddForm.finishSave();
+        }).catch((err) => {
+            console.log('Ошибка добавления карточки ' + err);
+        }).finally(() => {
+
+        })
     }
 );
 popupAddForm.setEventListeners();
@@ -135,10 +165,11 @@ const popupEditForm = new PopupWithForm(
             about: profileProfessionInput.value
         }
 
+        popupEditForm.waitSave();
         api.setUserInfo(data).then((res) => {
-            console.log(data);
             userInfo.setUserInfo(data);
             popupEditForm.close();
+            popupEditForm.finishSave();
         }).catch((err) => {
             console.log('Ошибка редактирования профиля ' + error);
         })
@@ -159,12 +190,14 @@ const avatarPopup = new PopupWithForm(
     '.popup_change-avatar',
     () => {
         const data = {
-            avatar: profileAvatarInput.value
+            avatar: profileAvatarInput.value,
         }
 
+        avatarPopup.waitSave();
         api.changeAvatar(data).then((res) => {
             profileAvatar.src = data.avatar;
             avatarPopup.close();
+            avatarPopup.finishSave();
         }).catch((err) => {
             console.log('Ошибка при обновлении аватара ' + err);
         })
@@ -173,5 +206,6 @@ const avatarPopup = new PopupWithForm(
 avatarPopup.setEventListeners();
 
 avatarButton.addEventListener('click', () => {
+    avatarFormValidate.toggleButtonState();
     avatarPopup.open();
 });

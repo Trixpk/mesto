@@ -22,6 +22,25 @@ export default class Api {
             headers: this._headers,
             method: 'POST',
             body: JSON.stringify(data)
+        }).then((result) => {
+            if(result.ok) {
+                return result.json();
+            }
+
+            return new Promise.reject(`Ошибка: ${result.status}`);
+        })
+    }
+
+    deleteCard(itemId) {
+        return fetch(this._baseUrl + '/cards/' + itemId, {
+            headers: this._headers,
+            method: 'DELETE'
+        }).then((result) => {
+            if(result.ok) {
+                return result.json();
+            }
+
+            return new Promise.reject(`Ошибка: ${result.status}`);
         })
     }
 
@@ -43,6 +62,12 @@ export default class Api {
             headers: this._headers,
             method: 'PATCH',
             body: JSON.stringify(data)
+        }).then((result) => {
+            if(result.ok) {
+                return result.json();
+            }
+
+            return new Promise.reject(`Ошибка: ${result.status}`);
         })
     }
 
@@ -51,6 +76,12 @@ export default class Api {
             headers: this._headers,
             method: 'PATCH',
             body: JSON.stringify(data)
+        }).then((result) => {
+            if(result.ok) {
+                return result.json();
+            }
+
+            return new Promise.reject(`Ошибка: ${result.status}`);
         })
     }
 
